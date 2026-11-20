@@ -72,7 +72,7 @@ def main() -> int:
     if not args.current.is_dir() or not args.previous.is_dir():
         parser.error("--current et --previous doivent être des dossiers PyInstaller existants")
     manifest = build_patch(args.current, args.previous, args.from_version, args.to_version, args.out)
-    print(f"Patch {manifest['from_version']} → {manifest['to_version']} : "
+    print(f"Patch {manifest['from_version']} -> {manifest['to_version']} : " 
           f"{len(manifest['files'])} fichier(s) modifié(s), {len(manifest['delete'])} supprimé(s), "
           f"{args.out.stat().st_size:,} octets".replace(",", " "))
     return 0

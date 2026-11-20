@@ -78,7 +78,9 @@ def main() -> int:
         archive_path.unlink(missing_ok=True)
     args.tag_file.parent.mkdir(parents=True, exist_ok=True)
     args.tag_file.write_text(tag, encoding="utf-8")
-    print(f"Bundle antérieur extrait : {tag} → {args.output}")
+    # Les runners Windows peuvent rediriger stdout en cp1252 ; l'arrow Unicode
+    # faisait échouer le job après l'extraction réussie du bundle.
+    print(f"Bundle anterieur extrait : {tag} -> {args.output}")
     return 0
 
 

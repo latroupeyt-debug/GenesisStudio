@@ -16,8 +16,15 @@ if __name__ == "__main__" and "--smoke-test" in sys.argv:
         from genesis.app import main as _main  # noqa: F401
     except Exception:
         import traceback
+        from pathlib import Path
 
-        traceback.print_exc()
+        error = traceback.format_exc()
+        log_path = Path(os.environ.get("GENESIS_SMOKE_LOG", Path(sys.executable).parent / "smoke-test-error.txt"))
+        try:
+            log_path.write_text(error, encoding="utf-8")
+        except OSError:
+            pass
+        print(error, file=sys.stderr)
         raise SystemExit(1)
     raise SystemExit(0)
 

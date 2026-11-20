@@ -26,8 +26,10 @@ def main() -> int:
     assert "collect_submodules" in hiddenimports and "torch.distributed" in hiddenimports, (
         "PyInstaller doit collecter explicitement tous les sous-modules torch.distributed."
     )
-    assert "torch.testing" in hiddenimports, "PyInstaller doit inclure torch.testing."
-    print("Configuration PyInstaller : torch.distributed et ses sous-modules sont collectés — OK")
+    assert "collect_submodules" in hiddenimports and "torch.testing" in hiddenimports, (
+        "PyInstaller doit collecter les modules torch.testing et ses sous-modules."
+    )
+    print("Configuration PyInstaller : sous-modules torch.distributed et torch.testing collectés — OK")
     return 0
 
 

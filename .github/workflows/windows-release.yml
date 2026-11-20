@@ -54,10 +54,23 @@ jobs:
       - name: Smoke test packaged application imports
         shell: pwsh
         run: |
+          $env:GENESIS_SMOKE_LOG = Join-Path $env:RUNNER_TEMP "genesis-smoke-test.log"
+          Remove-Item $env:GENESIS_SMOKE_LOG -Force -ErrorAction SilentlyContinue
           & "dist/Genesis Studio/Genesis Studio.exe" --smoke-test
-          if ($LASTEXITCODE -ne 0) {
-            throw "Le smoke test du bundle a échoué (code $LASTEXITCODE)."
+          $smokeCode = $LASTEXITCODE
+          if ($smokeCode -ne 0) {
+            if (Test-Path $env:GENESIS_SMOKE_LOG) {
+              Write-Host "=== Erreur d'import du smoke test ==="
+              Get-Content $env:GENESIS_SMOKE_LOG
+            }
+            $warnings = "build/genesis/warn-genesis.txt"
+            if (Test-Path $warnings) {
+              Write-Host "=== Avertissements PyInstaller ==="
+              Get-Content $warnings
+            }
+            throw "Le smoke test du bundle a échoué (code $smokeCode)."
           }
+          Remove-Item $env:GENESIS_SMOKE_LOG -Force -ErrorAction SilentlyContinue
 
       - name: Build isolated updater helper
         run: >-

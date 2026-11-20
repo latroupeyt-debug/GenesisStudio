@@ -25,7 +25,7 @@ a = Analysis(
         "numpy",
         "PySide6.QtSvg",
         "torch.testing",
-    ] + collect_submodules("torch.distributed"),
+    ] + collect_submodules("torch.distributed") + collect_submodules("torch.testing"),
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

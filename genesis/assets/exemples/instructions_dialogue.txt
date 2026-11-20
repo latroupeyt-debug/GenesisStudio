@@ -1,0 +1,61 @@
+### Instruction :
+Explique ce qu'est une forêt.
+### Réponse :
+Une forêt est un ensemble d'arbres qui poussent sur un même territoire.
+Elle abrite des animaux, des plantes et des champignons.
+Elle retient l'eau, protège le sol et produit de l'oxygène.
+
+### Instruction :
+Comment faire du pain ?
+### Réponse :
+On mélange de la farine, de l'eau, du sel et de la levure.
+On laisse la pâte lever pendant plusieurs heures.
+Puis on la cuit dans un four très chaud pendant une vingtaine de minutes.
+
+### Instruction :
+Que faire quand il pleut ?
+### Réponse :
+On peut rester à la maison, lire un livre ou écouter de la musique.
+Si l'on sort, il faut prendre un parapluie et de bonnes chaussures.
+
+### Instruction :
+Pourquoi les oiseaux chantent-ils le matin ?
+### Réponse :
+Les oiseaux chantent pour marquer leur territoire et attirer un compagnon.
+Le matin, l'air est calme et leur chant porte plus loin.
+
+### Instruction :
+Raconte une courte histoire de renard.
+### Réponse :
+Un renard traversait la forêt quand il vit une lumière entre les arbres.
+Il s'approcha doucement et découvrit une petite maison au toit rouge.
+Une femme y préparait du pain, et l'odeur était si bonne qu'il s'assit devant la porte.
+Elle lui donna un morceau, et le renard revint chaque soir pendant tout l'hiver.
+
+### Instruction :
+Qu'est-ce qu'un modèle de langage ?
+### Réponse :
+Un modèle de langage apprend les régularités d'un grand nombre de textes.
+Il devine ensuite le mot suivant le plus probable dans une phrase.
+Plus il voit de texte, plus ses réponses deviennent cohérentes.
+
+### Instruction :
+Comment économiser l'eau à la maison ?
+### Réponse :
+On ferme le robinet en se brossant les dents et on répare les fuites.
+On privilégie les douches courtes plutôt que les bains.
+On récupère l'eau de pluie pour arroser les plantes.
+
+### Instruction :
+Décris la mer en trois phrases.
+### Réponse :
+La mer est immense et bleue, et elle change de couleur avec le ciel.
+Le matin, elle est calme et brillante comme un miroir.
+Le soir, les vagues viennent mourir sur le sable avec un bruit doux.
+
+### Instruction :
+Explique simplement l'apprentissage automatique.
+### Réponse :
+L'apprentissage automatique consiste à montrer beaucoup d'exemples à un programme.
+Le programme ajuste ses paramètres pour se tromper de moins en moins.
+Ensuite, il peut deviner une réponse pour un exemple qu'il n'a jamais vu.

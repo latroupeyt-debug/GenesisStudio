@@ -1,0 +1,15 @@
+# Genesis Studio — dépendances avec PyTorch CUDA (GPU NVIDIA)
+#
+# Prérequis : pilote NVIDIA récent (nvidia-smi doit fonctionner).
+# Adaptez cu126 à la version de CUDA supportée par votre pilote
+# (cu121, cu124, cu126…). Liste officielle :
+#   https://pytorch.org/get-started/locally/
+#
+#   pip install -r requirements-cuda.txt
+
+--index-url https://download.pytorch.org/whl/cu126
+--extra-index-url https://pypi.org/simple
+
+PySide6>=6.6
+torch>=2.1
+numpy>=1.24

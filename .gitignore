@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+dist/
+captures/*.png
+data/
+portable.txt
+# Clés d'API générateur (DPAPI sous Windows)
+api-keys.dpapi.json
+*.dpapi.json
+.generated/

@@ -20,11 +20,13 @@ def main() -> int:
     excludes_node = keywords["excludes"]
     excludes = {item.value for item in excludes_node.elts if isinstance(item, ast.Constant)}
     assert "torch.distributed" not in excludes, "torch.distributed ne doit pas être exclu."
+    assert "torch.testing" not in excludes, "torch.testing est importé pendant l'initialisation de PyTorch."
 
     hiddenimports = ast.unparse(keywords["hiddenimports"])
     assert "collect_submodules" in hiddenimports and "torch.distributed" in hiddenimports, (
         "PyInstaller doit collecter explicitement tous les sous-modules torch.distributed."
     )
+    assert "torch.testing" in hiddenimports, "PyInstaller doit inclure torch.testing."
     print("Configuration PyInstaller : torch.distributed et ses sous-modules sont collectés — OK")
     return 0
 

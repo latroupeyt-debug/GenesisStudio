@@ -2,4 +2,4 @@
 
 APP_NAME = "Genesis Studio"
 APP_TAGLINE = "Créez votre modèle de langage, de zéro."
-APP_VERSION = "1.1.5"
+APP_VERSION = "1.1.6"

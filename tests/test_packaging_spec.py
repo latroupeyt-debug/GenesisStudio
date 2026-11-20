@@ -29,7 +29,11 @@ def main() -> int:
     assert "collect_submodules" in hiddenimports and "torch.testing" in hiddenimports, (
         "PyInstaller doit collecter les modules torch.testing et ses sous-modules."
     )
-    print("Configuration PyInstaller : sous-modules torch.distributed et torch.testing collectés — OK")
+    workflow = (ROOT / ".github" / "workflows" / "windows-release.yml").read_text(encoding="utf-8")
+    assert "Start-Process" in workflow and "$process.ExitCode" in workflow, (
+        "Le smoke test Windows doit récupérer explicitement l'ExitCode du processus GUI."
+    )
+    print("Configuration PyInstaller et contrôle du smoke test Windows — OK")
     return 0
 
 

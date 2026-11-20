@@ -56,8 +56,12 @@ jobs:
         run: |
           $env:GENESIS_SMOKE_LOG = Join-Path $env:RUNNER_TEMP "genesis-smoke-test.log"
           Remove-Item $env:GENESIS_SMOKE_LOG -Force -ErrorAction SilentlyContinue
-          & "dist/Genesis Studio/Genesis Studio.exe" --smoke-test
-          $smokeCode = $LASTEXITCODE
+          $process = Start-Process `
+            -FilePath "dist/Genesis Studio/Genesis Studio.exe" `
+            -ArgumentList "--smoke-test" `
+            -WorkingDirectory "dist/Genesis Studio" `
+            -PassThru -Wait
+          $smokeCode = $process.ExitCode
           if ($smokeCode -ne 0) {
             if (Test-Path $env:GENESIS_SMOKE_LOG) {
               Write-Host "=== Erreur d'import du smoke test ==="

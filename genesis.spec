@@ -11,6 +11,8 @@ Pour réduire la taille, installez la version CPU de PyTorch avant de compiler :
     pip install torch --index-url https://download.pytorch.org/whl/cpu
 """
 
+from PyInstaller.utils.hooks import collect_submodules
+
 block_cipher = None
 
 a = Analysis(
@@ -22,7 +24,7 @@ a = Analysis(
         "torch",
         "numpy",
         "PySide6.QtSvg",
-    ],
+    ] + collect_submodules("torch.distributed"),
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

@@ -51,6 +51,14 @@ jobs:
       - name: Build Genesis Studio (one-folder)
         run: python -m PyInstaller --noconfirm --clean genesis.spec
 
+      - name: Smoke test packaged application imports
+        shell: pwsh
+        run: |
+          & "dist/Genesis Studio/Genesis Studio.exe" --smoke-test
+          if ($LASTEXITCODE -ne 0) {
+            throw "Le smoke test du bundle a échoué (code $LASTEXITCODE)."
+          }
+
       - name: Build isolated updater helper
         run: >-
           python -m PyInstaller --noconfirm --clean --onefile --noconsole

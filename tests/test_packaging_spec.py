@@ -16,13 +16,16 @@ def main() -> int:
         and isinstance(node.func, ast.Name)
         and node.func.id == "Analysis"
     )
-    excludes_node = next(keyword.value for keyword in analysis.keywords if keyword.arg == "excludes")
+    keywords = {keyword.arg: keyword.value for keyword in analysis.keywords}
+    excludes_node = keywords["excludes"]
     excludes = {item.value for item in excludes_node.elts if isinstance(item, ast.Constant)}
-    assert "torch.distributed" not in excludes, (
-        "torch.distributed est importé pendant l'initialisation de torch.utils.data; "
-        "l'exclure casse le démarrage de l'application empaquetée."
+    assert "torch.distributed" not in excludes, "torch.distributed ne doit pas être exclu."
+
+    hiddenimports = ast.unparse(keywords["hiddenimports"])
+    assert "collect_submodules" in hiddenimports and "torch.distributed" in hiddenimports, (
+        "PyInstaller doit collecter explicitement tous les sous-modules torch.distributed."
     )
-    print("Configuration PyInstaller : torch.distributed n'est pas exclu — OK")
+    print("Configuration PyInstaller : torch.distributed et ses sous-modules sont collectés — OK")
     return 0
 
 

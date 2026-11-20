@@ -31,7 +31,6 @@ a = Analysis(
         "matplotlib",
         "IPython",
         "pytest",
-        "torch.distributed",
         "torch.testing",
         "torch.utils.tensorboard",
     ],
